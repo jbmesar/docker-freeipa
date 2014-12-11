@@ -99,6 +99,7 @@ else
     linkdir /etc/pki-ca
     linkdir /etc/ssh
     linkdir /etc/sssd
+    linkdir /etc/security
     linkdir /usr/share/ipa/html
     linkdir /usr/lib64/dirsrv/
     linkdir /var/named/data
