@@ -91,6 +91,7 @@ else
     }
 
     # Setting up links directories
+    linkdir /root
     linkdir /etc/dirsrv
     linkdir /etc/httpd
     linkdir /etc/ipa
