@@ -15,6 +15,8 @@ ADD systemctl-socket-daemon /usr/bin/systemctl-socket-daemon
 
 ADD ipa-server-configure-first /usr/sbin/ipa-server-configure-first
 
+ADD fedora.repo /etc/yum.repos.d/fedora.repo
+
 RUN chmod -v +x /usr/bin/systemctl /usr/bin/systemctl-socket-daemon /usr/sbin/ipa-server-configure-first /usr/sbin/runuser-pp
 
 VOLUME /opt/ipa

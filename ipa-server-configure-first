@@ -80,27 +80,22 @@ else
     [[ ! -d $prefix ]] && mkdir $prefix
 
     function linkdir() {
-      [[ ! -d $1 ]] && mkdir -p ${prefix}${1}
-      [[ ! -d $(basename $1) ]] && mkdir -p $(basename $1)
-      ln -sf ${prefix}${1} $(basename $1)
+      [[ ! -d ${prefix}/${1} ]] && mkdir -p ${prefix}/${1}
+      [[ ! -d $(dirname $1) ]] && mkdir -p $(dirname $1)
+      ln -sf ${prefix}/${1} $(dirname $1)
     }
     function linkfile() {
-      [[ ! -d "${prefix}$(basename $1)" ]] && mkdir "${prefix}$(basename $1)"
-      [[ -f $1 ]] && cp $1 ${prefix}${1} || touch ${prefix}${1}
-      ln -sf ${prefix}${1} $(basename $1)
+      [[ ! -d "${prefix}/$(dirname $1)" ]] && mkdir -p "${prefix}/$(dirname $1)"
+      [[ -f $1 ]] && cp $1 ${prefix}/${1} || touch ${prefix}/${1}
+      ln -sf ${prefix}/${1} $(dirname $1)
     }
 
     # Setting up links directories
-    linkdir /root
     linkdir /etc/dirsrv
     linkdir /etc/httpd
     linkdir /etc/ipa
-    linkdir /etc/openldap
-    linkdir /etc/pki
     linkdir /etc/pki-ca
-    linkdir /etc/ssh
     linkdir /etc/sssd
-    linkdir /etc/security
     linkdir /usr/share/ipa/html
     linkdir /usr/lib64/dirsrv/
     linkdir /var/named/data
@@ -113,7 +108,6 @@ else
     linkdir /var/lib/authconfig/last
     linkdir /var/lib/certmonger
     linkdir /var/lib/ipa
-    linkdir /var/log
     linkdir /var/kerberos/krb5kdc
     linkdir /etc/sysconfig/pki
 
@@ -126,7 +120,6 @@ else
     linkfile /etc/named.conf
     linkfile /etc/named.keytab
     linkfile /etc/ntp.conf
-    linkfile /etc/resolv.conf
     linkfile /root/ca-agent.p12
     linkfile /root/cacert.p12
     linkfile /etc/sysconfig/authconfig
@@ -134,8 +127,27 @@ else
     linkfile /etc/sysconfig/dirsrv-PKI-IPA
     linkfile /etc/sysconfig/dirsrv-REALM
     linkfile /etc/sysconfig/krb5kdc
-    linkfile /etc/sysconfig/ntpd,pki-ca
-    linkfile /etc/sysconfig/pki/ca/pki-ca
+    linkfile /etc/sysconfig/ntpd
+    linkfile /etc/sysconfig/pki-ca
+    linkfile /etc/openldap/ldap.conf
+    linkfile /etc/pki/nssdb/cert8.db
+    linkfile /etc/pki/nssdb/key3.db
+    linkfile /etc/pki/nssdb/secmod.db
+    linkfile /etc/ssh/sshd_config
+    linkfile /etc/ssh/ssh_config
+    linkfile /var/log/pki-ca
+    linkfile /var/log/dirsrv/slapd-REALM-COM
+    linkfile /var/log/dirsrv/slapd-PKI-IPA
+    linkfile /var/log/httpd
+    linkfile /var/log/ipaserver-install.log
+    linkfile /var/log/kadmind.log
+    linkfile /var/log/pki-ca-install.log
+    linkfile /var/log/messages
+    linkfile /var/log/ipaclient-install.log
+    linkfile /var/log/secure
+    linkfile /var/log/ipaserver-uninstall.log
+    linkfile /var/log/pki-ca-uninstall.log
+    linkfile /var/log/ipaclient-uninstall.log
 
     # Install FreeIPA server
     echo "Updating system..."
