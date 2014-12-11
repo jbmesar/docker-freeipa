@@ -126,7 +126,6 @@ else
     linkfile /etc/named.keytab
     linkfile /etc/ntp.conf
     linkfile /etc/resolv.conf
-    linkfile /etc/security/limits.conf
     linkfile /root/ca-agent.p12
     linkfile /root/cacert.p12
     linkfile /etc/sysconfig/authconfig
