@@ -116,25 +116,25 @@ else
     linkdir /etc/sysconfig/pki
 
     # Setting up link files
-    linkfiles /etc/passwd
-    linkfiles /etc/group
-    linkfiles /etc/nsswitch.conf
-    linkfiles /etc/krb5.conf
-    linkfiles /etc/krb5.keytab
-    linkfiles /etc/named.conf
-    linkfiles /etc/named.keytab
-    linkfiles /etc/ntp.conf
-    linkfiles /etc/resolv.conf
-    linkfiles /etc/security/limits.conf
-    linkfiles /root/ca-agent.p12
-    linkfiles /root/cacert.p12
-    linkfiles /etc/sysconfig/authconfig
-    linkfiles /etc/sysconfig/dirsrv
-    linkfiles /etc/sysconfig/dirsrv-PKI-IPA
-    linkfiles /etc/sysconfig/dirsrv-REALM
-    linkfiles /etc/sysconfig/krb5kdc
-    linkfiles /etc/sysconfig/ntpd,pki-ca
-    linkfiles /etc/sysconfig/pki/ca/pki-ca
+    linkfile /etc/passwd
+    linkfile /etc/group
+    linkfile /etc/nsswitch.conf
+    linkfile /etc/krb5.conf
+    linkfile /etc/krb5.keytab
+    linkfile /etc/named.conf
+    linkfile /etc/named.keytab
+    linkfile /etc/ntp.conf
+    linkfile /etc/resolv.conf
+    linkfile /etc/security/limits.conf
+    linkfile /root/ca-agent.p12
+    linkfile /root/cacert.p12
+    linkfile /etc/sysconfig/authconfig
+    linkfile /etc/sysconfig/dirsrv
+    linkfile /etc/sysconfig/dirsrv-PKI-IPA
+    linkfile /etc/sysconfig/dirsrv-REALM
+    linkfile /etc/sysconfig/krb5kdc
+    linkfile /etc/sysconfig/ntpd,pki-ca
+    linkfile /etc/sysconfig/pki/ca/pki-ca
 
     # Install FreeIPA server
     echo "Updating system..."
